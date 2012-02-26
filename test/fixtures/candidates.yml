@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  firt_name: MyString
+  second_name: MyString
+  rfc: MyString
+
+two:
+  firt_name: MyString
+  second_name: MyString
+  rfc: MyString
