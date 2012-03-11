@@ -19,7 +19,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'sass-rails',   '~> 3.2.3'
+gem 'sass-rails',   '~> 3.2.3'  #Heroku needs it out of :assets
 gem 'jquery-rails'
 
 gem 'thin'
