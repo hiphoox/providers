@@ -1,5 +1,8 @@
 class AdminUser < ActiveRecord::Base
   has_many :candidates
+  validates :name, :presence => { :with => true, :message => "El nombre no puede estar en blanco"}
+  validates :contact_name, :presence => { :with => true, :message => "Se debe especificar un contacto"}
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, 
