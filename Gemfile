@@ -5,9 +5,6 @@ gem 'rails', '3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
-gem 'heroku'
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -21,11 +18,12 @@ end
 
 gem 'sass-rails',   '~> 3.2.3'  #Heroku needs it out of :assets
 gem 'jquery-rails'
+gem 'meta_search', '>= 1.1.0.pre'
+gem 'activeadmin'
 
 gem 'thin'
-
-gem 'activeadmin'
-gem 'meta_search', '>= 1.1.0.pre'
+gem 'pg'
+gem 'heroku'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
