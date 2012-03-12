@@ -12,6 +12,10 @@ class Candidate < ActiveRecord::Base
   STATUS_ACCEPTED  = 'aceptado'
   STATUS_REJECTED  = 'rechazado'
 
+  def before_validation_on_create
+    self.status = Candidate::STATUS_NEW unless attribute_present?("status")
+  end
+  
   def self.status_collection
     {
       "Nuevo" => STATUS_NEW,
@@ -19,5 +23,5 @@ class Candidate < ActiveRecord::Base
       "Rechazado" => STATUS_REJECTED
     }
   end
-
+  
 end

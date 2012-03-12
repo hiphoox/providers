@@ -1,4 +1,6 @@
 ActiveAdmin.register AdminUser, :as => "Proveedor" do
+  menu :label => "Proveedores",:if => proc{ current_admin_user.isAdmin }
+
   index do
     column "Nombre", :name
     column "Nombre de Contacto", :contact_name
