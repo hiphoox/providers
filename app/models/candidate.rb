@@ -7,4 +7,17 @@ class Candidate < ActiveRecord::Base
   validates :last_name, :presence => { :with => true, :message => "El apellido paterno no puede estar en blanco"}
   validates :mother_name, :presence => { :with => true, :message => "El apellido materno no puede estar en blanco"}
   validates :admin_user, :presence => { :with => true, :message => "Se debe asignar a un proveedor"}
+
+  STATUS_NEW = 'nuevo'
+  STATUS_ACCEPTED  = 'aceptado'
+  STATUS_REJECTED  = 'rechazado'
+
+  def self.status_collection
+    {
+      "Nuevo" => STATUS_NEW,
+      "Aceptado" => STATUS_ACCEPTED,
+      "Rechazado" => STATUS_REJECTED
+    }
+  end
+
 end

@@ -4,13 +4,16 @@ ActiveAdmin.register AdminUser, :as => "Proveedor" do
     column "Nombre de Contacto", :contact_name
     column "Correo Electronico", :email
     column "Telefono", :phone_number
+    column "Es Administrador", :isAdmin do |adminUser|
+      adminUser.isAdmin ? "Si" : "No"
+    end
     default_actions
   end 
 
   # Filters
-  filter :name 
-  filter :contact_name
-  filter :email
+  filter :name, :label => "Nombre"
+  filter :contact_name, :label => "Contacto"
+  filter :email, :label => "Correo electronico"
 
   form do |f|
     f.inputs "Detalles del Proveedor" do
@@ -18,6 +21,7 @@ ActiveAdmin.register AdminUser, :as => "Proveedor" do
       f.input :contact_name, :label => "Contacto"
       f.input :email, :label => "Correo electronico"
       f.input :phone_number, :label => "Telefono"
+      f.input :isAdmin, :label => "Administrador?"
     end
     f.buttons
   end
