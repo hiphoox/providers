@@ -14,10 +14,10 @@ ActiveAdmin.register AdminUser, :as => "Proveedor" do
 
   form do |f|
     f.inputs "Detalles del Proveedor" do
-      f.input :name
-      f.input :contact_name
-      f.input :email
-      f.input :phone_number
+      f.input :name, :label => "Nombre"
+      f.input :contact_name, :label => "Contacto"
+      f.input :email, :label => "Correo electronico"
+      f.input :phone_number, :label => "Telefono"
     end
     f.buttons
   end

@@ -38,5 +38,16 @@ ActiveAdmin.register Candidate, :as => "Candidato" do
       row("Actualizado") {candidato.updated_at}
     end
   end
+     
+  form do |f|
+    f.inputs "Nuevo Candidato" do
+      f.input :admin_user, :label => "Proveedor" unless 8 > 8
+      f.input :first_name, :label => "Nombre"
+      f.input :last_name, :label => "Apellido Paterno"
+      f.input :mother_name, :label => "Apellido Materno"
+      f.input :rfc, :label => "RFC"
+    end
+    f.buttons
+  end
       
 end
