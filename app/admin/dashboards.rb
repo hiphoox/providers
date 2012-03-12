@@ -1,5 +1,41 @@
 ActiveAdmin::Dashboards.build do
 
+	section "Ultimos Candidatos Capturados" , :if => Proc.new { not current_admin_user.isAdmin } do
+  	table_for Candidate.where(:admin_user_id => current_admin_user).where(:status => Candidate::STATUS_NEW).order('created_at desc').all do |t|
+			t.column "Nombre", :first_name do |candidate|
+	    	link_to candidate.first_name, admin_candidate_path(candidate)
+	    end
+    	t.column "Apellido Paterno", :last_name
+    	t.column "Apellido Materno", :mother_name
+   		t.column "RFC", :rfc
+    	t.column "Proveedor", :admin_user if current_admin_user.isAdmin
+	  	end
+  end
+
+	section "Candidatos Rechazados" , :if => Proc.new { not current_admin_user.isAdmin } do
+		table_for Candidate.where(:admin_user_id => current_admin_user).where(:status => Candidate::STATUS_REJECTED).order('created_at desc').all do |t|
+			t.column "Nombre", :first_name do |candidate|
+				link_to candidate.first_name, admin_candidate_path(candidate)
+			end
+			t.column "Apellido Paterno", :last_name
+			t.column "Apellido Materno", :mother_name
+		 	t.column "RFC", :rfc
+			t.column "Proveedor", :admin_user if current_admin_user.isAdmin
+			end
+	end
+
+	section "Ultimos Candidatos Capturados" , :if => Proc.new { current_admin_user.isAdmin } do
+		table_for Candidate.where(:status => Candidate::STATUS_NEW).order('created_at desc').all do |t|
+			t.column "Nombre", :first_name do |candidate|
+				link_to candidate.first_name, admin_candidate_path(candidate)
+			end
+			t.column "Apellido Paterno", :last_name
+			t.column "Apellido Materno", :mother_name
+		 	t.column "RFC", :rfc
+			t.column "Proveedor", :admin_user if current_admin_user.isAdmin
+			end
+	end
+
   # Define your dashboard sections here. Each block will be
   # rendered on the dashboard in the context of the view. So just
   # return the content which you would like to display.
