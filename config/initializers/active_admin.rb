@@ -1,5 +1,8 @@
 ActiveAdmin.setup do |config|
 
+I18n.locale = :es # or whatever your default locale is
+I18n.load_path += Dir[Rails.root.join("config/locales/**/*.yml")]
+I18n.reload!
   # == Site Title
   #
   # Set the title that is displayed on the main layout
