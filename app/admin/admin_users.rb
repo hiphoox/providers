@@ -28,12 +28,4 @@ ActiveAdmin.register AdminUser, :as => "Proveedor" do
     f.buttons
   end
 
-  show "Candidatos" => :name do
-    panel "Candidatos" do
-      table_for proveedor.candidates do |c| 
-        c.column("Nombre") { |candidate| link_to candidate.first_name, admin_candidato_path(candidate) }
-      end
-    end
-  end
-  
 end
