@@ -11,6 +11,8 @@ es:
       no_comments_yet: "No hay comentarios"
       add: "Agregar comentario"
     create_model: "New %{model}"
+    update_model: "Update %{model}"
+    
   errors:
     messages:
       expired: "has expired, please request a new one"

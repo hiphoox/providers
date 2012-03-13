@@ -8,6 +8,10 @@ class Candidate < ActiveRecord::Base
   validates :mother_name, :presence => { :with => true, :message => "El apellido materno no puede estar en blanco"}
   validates :admin_user, :presence => { :with => true, :message => "Se debe asignar a un proveedor"}
 
+  validates :email, :presence => { :with => true, :message => "Se debe capturar un correo electronico"}
+  validates :phone_number, :presence => { :with => true, :message => "Se debe capturar un telefono"}
+  validates :technology, :presence => { :with => true, :message => "Se debe capturar una tecnologia"}
+
   STATUS_NEW = 'nuevo'
   STATUS_ACCEPTED  = 'aceptado'
   STATUS_REJECTED  = 'rechazado'

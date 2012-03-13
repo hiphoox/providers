@@ -28,6 +28,7 @@ ActiveAdmin.register Candidate do
   filter :first_name, :label => "Nombre"
   filter :last_name, :label => "Apellido Paterno"
   filter :rfc, :label => "RFC"
+  filter :technology, :label => "Tecnologia"
   filter :admin_user, :label => "Proveedor", :collection => proc { if current_admin_user.isAdmin then AdminUser.all else {} end }
 
   scope :all, :default => true
@@ -50,6 +51,9 @@ ActiveAdmin.register Candidate do
         row("Apellido Paterno") {candidate.last_name}
         row("Apellido Materno") {candidate.mother_name}
         row("RFC") {candidate.rfc}
+        row("Correo electronico") {candidate.email}
+        row("Telefono") {candidate.phone_number}
+        row("Tecnologia") {candidate.technology}
         row("Estatus") {candidate.status}
       end
     end
@@ -74,6 +78,9 @@ ActiveAdmin.register Candidate do
       f.input :last_name, :label => "Apellido Paterno"
       f.input :mother_name, :label => "Apellido Materno"
       f.input :rfc, :label => "RFC"
+      f.input :email, :label => "Correo Electronico"
+      f.input :phone_number, :label => "Telefono"
+      f.input :technology, :label => "Tecnologia"      
     end
     f.buttons
   end
