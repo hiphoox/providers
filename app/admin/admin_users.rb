@@ -17,6 +17,19 @@ ActiveAdmin.register AdminUser, :as => "Proveedor" do
   filter :contact_name, :label => "Contacto"
   filter :email, :label => "Correo electronico"
 
+  show :name => :name do
+    panel "Informacion General" do
+      attributes_table_for proveedor do
+        row("Email") {proveedor.email}
+        row("Nombre") {proveedor.name}
+        row("Nombre de Contacto") {proveedor.contact_name}
+        row("Telefono") {proveedor.phone_number}
+        row("Administrador") {proveedor.isAdmin ? "Si" : "No"}
+      end
+    end
+    active_admin_comments
+  end
+
   form do |f|
     f.inputs "Detalles del Proveedor" do
       f.input :name, :label => "Nombre"

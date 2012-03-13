@@ -43,7 +43,6 @@ ActiveAdmin.register Candidate do
     candidates.where(:status => Candidate::STATUS_REJECTED)
   end
 
-
   show do
     panel "Informacion General" do
       attributes_table_for candidate do
