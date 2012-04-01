@@ -14,7 +14,7 @@ ActiveAdmin::Dashboards.build do
   end
 
 	section "Candidatos Rechazados" , :if => Proc.new { not current_admin_user.isAdmin } do
-		table_for Candidato.where(:admin_user_id => current_admin_user).where(:status => Candidate::STATUS_REJECTED).order('created_at desc').all do |t|
+		table_for Candidate.where(:admin_user_id => current_admin_user).where(:status => Candidate::STATUS_REJECTED).order('created_at desc').all do |t|
 			t.column "Nombre", :first_name do |candidate|
 				link_to candidate.first_name, admin_candidato_path(candidate)
 			end
