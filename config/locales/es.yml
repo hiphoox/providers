@@ -18,7 +18,7 @@ es:
     edit: "Editar"
     delete: "Eliminar"
     delete_confirmation: "¿Está seguro que desea eliminar la información?"
-    new_model: "Nuevo(a) %{model}"
+    new_model: "Dar de alta %{model}"
     edit_model: "Editar %{model}"
     delete_model: "Eliminar %{model}"
     details: "Detalles de %{model}"
