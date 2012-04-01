@@ -1,9 +1,15 @@
 es:
+  support:
+    array:
+      two_words_connector: " y "
+
   active_admin:
     comments:
       title_content: "Comentarios"
       no_comments_yet: "No hay comentarios"
       add: "Agregar comentario"
+      errors:
+        empty_text: "Falta poner comentarios"
     dashboard: "Inicio"
     dashboard_welcome:
       welcome: "Bienvenido a Active Admin. Esta es la página de inicio predeterminada."
@@ -50,6 +56,14 @@ es:
           previous: "Anterior"
           next: "Siguiente"
           last: "Ultimo"
+
+  activerecord:
+    errors:
+      models:
+        admin_user:
+          attributes:
+            email:
+              blank: "Se debe capturar el correo electrónico"
 
   formtastic:
     yes: "Sí"
