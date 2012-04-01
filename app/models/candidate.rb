@@ -5,7 +5,7 @@ class Candidate < ActiveRecord::Base
   validates :rfc, :uniqueness => { :with => true, :case_sensitive => false, :message => "Candidato ya existe"} 
   validates :first_name, :presence => { :with => true, :message => "El nombre no puede estar en blanco"}
   validates :last_name, :presence => { :with => true, :message => "El apellido paterno no puede estar en blanco"}
-  validates :mother_name, :presence => { :with => true, :message => "El apellido materno no puede estar en blanco"}
+  #validates :mother_name, :presence => { :with => true, :message => "El apellido materno no puede estar en blanco"}
   validates :admin_user, :presence => { :with => true, :message => "Se debe asignar a un proveedor"}
 
   validates :email, :presence => { :with => true, :message => "Se debe capturar un correo electronico"}
