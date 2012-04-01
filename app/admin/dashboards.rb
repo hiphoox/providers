@@ -1,6 +1,7 @@
+# encoding: utf-8
 ActiveAdmin::Dashboards.build do
 
-	section "Ultimos Candidatos Capturados" , :if => Proc.new { not current_admin_user.isAdmin } do
+	section "Últimos Candidatos Capturados" , :if => Proc.new { not current_admin_user.isAdmin } do
   	table_for Candidate.where(:admin_user_id => current_admin_user).where(:status => Candidate::STATUS_NEW).order('created_at desc').all do |t|
 			t.column "Nombre", :first_name do |candidate|
 	    	link_to candidate.first_name, admin_candidato_path(candidate)
@@ -24,7 +25,7 @@ ActiveAdmin::Dashboards.build do
 			end
 	end
 
-	section "Ultimos Candidatos Capturados" , :if => Proc.new { current_admin_user.isAdmin } do
+	section "Últimos Candidatos Capturados" , :if => Proc.new { current_admin_user.isAdmin } do
 		table_for Candidate.where(:status => Candidate::STATUS_NEW).order('created_at desc').all do |t|
 			t.column "Nombre", :first_name do |candidate|
 				link_to candidate.first_name, admin_candidato_path(candidate)

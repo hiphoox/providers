@@ -1,3 +1,4 @@
+# encoding: utf-8
 ActiveAdmin.register Candidate, :as => "Candidato" do
   menu :label => "Candidatos" #,:if => proc{ current_admin_user.isAdmin }
   form :partial => "form"
@@ -29,7 +30,7 @@ ActiveAdmin.register Candidate, :as => "Candidato" do
   filter :first_name, :label => "Nombre"
   filter :last_name, :label => "Apellido Paterno"
   filter :rfc, :label => "RFC"
-  filter :technology, :label => "Tecnologia"
+  filter :technology, :label => "Tecnología"
   filter :admin_user, :label => "Proveedor", :collection => proc { if current_admin_user.isAdmin then AdminUser.all else {} end }
 
   scope :all, :default => true
@@ -47,21 +48,21 @@ ActiveAdmin.register Candidate, :as => "Candidato" do
 
   # View page
   show do
-    panel "Informacion General" do
+    panel "Información General" do
       attributes_table_for candidato do
         row("Nombre") {candidato.first_name}
         row("Apellido Paterno") {candidato.last_name}
         row("Apellido Materno") {candidato.mother_name}
         row("RFC") {candidato.rfc}
-        row("Correo electronico") {candidato.email}
-        row("Telefono") {candidato.phone_number}
-        row("Tecnologia") {candidato.technology}
+        row("Correo electrónico") {candidato.email}
+        row("Teléfono") {candidato.phone_number}
+        row("Tecnología") {candidato.technology}
       end
     end
     active_admin_comments
   end
   
-  sidebar "Otra Informacion", :only => :show do
+  sidebar "Otra Información", :only => :show do
     attributes_table_for candidato do
       row("Estatus") {candidato.status}
       row("Creado") {candidato.created_at}
@@ -81,9 +82,9 @@ ActiveAdmin.register Candidate, :as => "Candidato" do
       f.input :last_name, :label => "Apellido Paterno"
       f.input :mother_name, :label => "Apellido Materno"
       f.input :rfc, :label => "RFC"
-      f.input :email, :label => "Correo Electronico"
-      f.input :phone_number, :label => "Telefono"
-      f.input :technology, :label => "Tecnologia"      
+      f.input :email, :label => "Correo Electrónico"
+      f.input :phone_number, :label => "Teléfono"
+      f.input :technology, :label => "Tecnología"      
     end
       f.buttons
   end

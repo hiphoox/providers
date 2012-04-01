@@ -1,11 +1,12 @@
+# encoding: utf-8
 ActiveAdmin.register AdminUser, :as => "Proveedor" do
   menu :label => "Proveedores",:if => proc{ current_admin_user.isAdmin }
 
   index do
     column "Nombre", :name
     column "Nombre de Contacto", :contact_name
-    column "Correo Electronico", :email
-    column "Telefono", :phone_number
+    column "Correo Electrónico", :email
+    column "Teléfono", :phone_number
     column "Es Administrador", :isAdmin do |adminUser|
       adminUser.isAdmin ? "Si" : "No"
     end
@@ -23,7 +24,7 @@ ActiveAdmin.register AdminUser, :as => "Proveedor" do
         row("Email") {proveedor.email}
         row("Nombre") {proveedor.name}
         row("Nombre de Contacto") {proveedor.contact_name}
-        row("Telefono") {proveedor.phone_number}
+        row("Teléfono") {proveedor.phone_number}
         row("Administrador") {proveedor.isAdmin ? "Si" : "No"}
       end
     end
@@ -34,8 +35,8 @@ ActiveAdmin.register AdminUser, :as => "Proveedor" do
     f.inputs "Detalles del Proveedor" do
       f.input :name, :label => "Nombre"
       f.input :contact_name, :label => "Contacto"
-      f.input :email, :label => "Correo electronico"
-      f.input :phone_number, :label => "Telefono"
+      f.input :email, :label => "Correo electrónico"
+      f.input :phone_number, :label => "Teléfono"
       f.input :isAdmin, :label => "Administrador?"
     end
     f.buttons
