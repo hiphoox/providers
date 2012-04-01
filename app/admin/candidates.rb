@@ -33,7 +33,7 @@ ActiveAdmin.register Candidate, :as => "Candidato" do
   filter :admin_user, :label => "Proveedor", :collection => proc { if current_admin_user.isAdmin then AdminUser.all else {} end }
 
   scope :all, :default => true
-  scope :nuevo do |candidatos|
+  scope :propuesto do |candidatos|
     candidatos.where(:status => Candidate::STATUS_NEW)
   end
 

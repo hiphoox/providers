@@ -4,7 +4,7 @@ es:
       title_content: "Comentarios"
       no_comments_yet: "No hay comentarios"
       add: "Agregar comentario"
-    dashboard: Inicio
+    dashboard: "Inicio"
     dashboard_welcome:
       welcome: "Bienvenido a Active Admin. Esta es la página de inicio predeterminada."
       call_to_action: "Para agregar secciones edita 'app/admin/dashboards.rb'"
@@ -42,6 +42,7 @@ es:
     blank_slate:
       content: "No hay %{resource_name} aún."
       link: "Crea uno(a)"
+
   views:
       pagination:
           truncate: "..."
@@ -49,6 +50,7 @@ es:
           previous: "Anterior"
           next: "Siguiente"
           last: "Ultimo"
+
   formtastic:
     yes: "Sí"
     no: "No"
