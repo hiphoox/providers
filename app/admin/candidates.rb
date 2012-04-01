@@ -10,7 +10,7 @@ ActiveAdmin.register Candidate, :as => "Candidato" do
     column "Apellido Materno", :mother_name
     column "RFC", :rfc
     column "Proveedor", :admin_user if current_admin_user.isAdmin
-    column "Estatus", :status
+    #column "Estatus", :status
     
     default_actions
   end
