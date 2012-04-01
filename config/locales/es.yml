@@ -64,6 +64,7 @@ es:
           attributes:
             email:
               blank: "Se debe capturar el correo electrónico"
+              invalid: "Correo electrónico inválido"
 
   formtastic:
     yes: "Sí"

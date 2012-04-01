@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Candidate < ActiveRecord::Base
   belongs_to :admin_user
   validates :rfc, :presence => { :with => true, :message => "El RFC no puede estar en blanco"}
@@ -9,6 +10,7 @@ class Candidate < ActiveRecord::Base
   validates :admin_user, :presence => { :with => true, :message => "Se debe asignar a un proveedor"}
 
   validates :email, :presence => { :with => true, :message => "Se debe capturar un correo electronico"}
+  validates :email, :format => { :with => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, :message => "Correo electrónico inválido"} 
   validates :phone_number, :presence => { :with => true, :message => "Se debe capturar un telefono"}
   validates :technology, :presence => { :with => true, :message => "Se debe capturar una tecnologia"}
 

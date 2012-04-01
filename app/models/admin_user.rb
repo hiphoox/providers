@@ -1,3 +1,4 @@
+# encoding: utf-8
 class AdminUser < ActiveRecord::Base
   has_many :candidates
   validates :name, :presence => { :with => true, :message => "El nombre no puede estar en blanco"}
