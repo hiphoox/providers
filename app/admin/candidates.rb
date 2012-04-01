@@ -1,9 +1,10 @@
-ActiveAdmin.register Candidate do
+ActiveAdmin.register Candidate, :as => "Candidato" do
   menu :label => "Candidatos" #,:if => proc{ current_admin_user.isAdmin }
+  form :partial => "form"
 
   index do
-    column "Nombre", :first_name do |candidate|
-      link_to candidate.first_name, admin_candidate_path(candidate)
+    column "Nombre", :first_name do |candidato|
+      link_to candidato.first_name, admin_candidato_path(candidato)
     end
     column "Apellido Paterno", :last_name
     column "Apellido Materno", :mother_name
@@ -19,7 +20,7 @@ ActiveAdmin.register Candidate do
       if current_admin_user.isAdmin then
         end_of_association_chain
       else
-        current_admin_user.candidates
+        current_admin_user.candidatos
       end
     end
   end
@@ -32,42 +33,44 @@ ActiveAdmin.register Candidate do
   filter :admin_user, :label => "Proveedor", :collection => proc { if current_admin_user.isAdmin then AdminUser.all else {} end }
 
   scope :all, :default => true
-  scope :nuevo do |candidates|
-    candidates.where(:status => Candidate::STATUS_NEW)
+  scope :nuevo do |candidatos|
+    candidatos.where(:status => Candidate::STATUS_NEW)
   end
 
-  scope :aceptado do |candidates|
-    candidates.where(:status => Candidate::STATUS_ACCEPTED)
+  scope :aceptado do |candidatos|
+    candidatos.where(:status => Candidate::STATUS_ACCEPTED)
   end
 
-  scope :rechazado do |candidates|
-    candidates.where(:status => Candidate::STATUS_REJECTED)
+  scope :rechazado do |candidatos|
+    candidatos.where(:status => Candidate::STATUS_REJECTED)
   end
 
+  # View page
   show do
     panel "Informacion General" do
-      attributes_table_for candidate do
-        row("Nombre") {candidate.first_name}
-        row("Apellido Paterno") {candidate.last_name}
-        row("Apellido Materno") {candidate.mother_name}
-        row("RFC") {candidate.rfc}
-        row("Correo electronico") {candidate.email}
-        row("Telefono") {candidate.phone_number}
-        row("Tecnologia") {candidate.technology}
-        row("Estatus") {candidate.status}
+      attributes_table_for candidato do
+        row("Nombre") {candidato.first_name}
+        row("Apellido Paterno") {candidato.last_name}
+        row("Apellido Materno") {candidato.mother_name}
+        row("RFC") {candidato.rfc}
+        row("Correo electronico") {candidato.email}
+        row("Telefono") {candidato.phone_number}
+        row("Tecnologia") {candidato.technology}
+        row("Estatus") {candidato.status}
       end
     end
     active_admin_comments
   end
   
   sidebar "Otra Informacion", :only => :show do
-    attributes_table_for candidate do
-      row("Estatus") {candidate.first_name}
-      row("Creado") {candidate.created_at}
-      row("Actualizado") {candidate.updated_at}
+    attributes_table_for candidato do
+      row("Estatus") {candidato.first_name}
+      row("Creado") {candidato.created_at}
+      row("Actualizado") {candidato.updated_at}
     end
   end
      
+  # New or Edit page
   form do |f|
     f.inputs "Nuevo Candidato" do
       f.input :admin_user, :label => "Proveedor" if current_admin_user.isAdmin
@@ -82,7 +85,7 @@ ActiveAdmin.register Candidate do
       f.input :phone_number, :label => "Telefono"
       f.input :technology, :label => "Tecnologia"      
     end
-    f.buttons
+      f.buttons
   end
       
 end

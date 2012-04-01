@@ -6,12 +6,8 @@ es:
       long: ""
 
   active_admin:
-    comments:
-      title_content: "Comentarios"
-      no_comments_yet: "No hay comentarios"
-      add: "Agregar comentario"
-    create_model: "New %{model}"
-    update_model: "Update %{model}"
+   create_model: "New %{model}"
+   update_model: "Update %{model}"
     
   errors:
     messages:
