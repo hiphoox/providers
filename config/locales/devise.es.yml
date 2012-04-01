@@ -3,7 +3,7 @@
 es:
   time:
     formats:
-      long: ""
+      long: "%d/%m/%Y"
 
   active_admin:
    create_model: "New %{model}"
