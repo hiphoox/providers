@@ -67,6 +67,7 @@ ActiveAdmin.register Candidate, :as => "Candidato" do
       row("Estatus") {candidato.first_name}
       row("Creado") {candidato.created_at}
       row("Actualizado") {candidato.updated_at}
+      row("Proveedor") {candidato.admin_user}
     end
   end
      
