@@ -21,7 +21,7 @@ ActiveAdmin.register Candidate, :as => "Candidato" do
       if current_admin_user.isAdmin then
         end_of_association_chain
       else
-        current_admin_user.candidatos
+        current_admin_user.candidates
       end
     end
   end
