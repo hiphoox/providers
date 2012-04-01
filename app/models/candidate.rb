@@ -5,6 +5,7 @@ class Candidate < ActiveRecord::Base
   validates :rfc, :format => { :with => /^[a-zA-Z]{3,4}(\d{6})((\D|\d){3})?$/, :message => "RFC invalido"} 
   validates :rfc, :uniqueness => { :with => true, :case_sensitive => false, :message => "Candidato ya existe"} 
   validates :first_name, :presence => { :with => true, :message => "El nombre no puede estar en blanco"}
+  validates :first_name, :uniqueness => { :scope =>[:last_name, :mother_name], :with => true, :case_sensitive => false, :message => "Candidato ya existe"} 
   validates :last_name, :presence => { :with => true, :message => "El apellido paterno no puede estar en blanco"}
   #validates :mother_name, :presence => { :with => true, :message => "El apellido materno no puede estar en blanco"}
   validates :admin_user, :presence => { :with => true, :message => "Se debe asignar a un proveedor"}
