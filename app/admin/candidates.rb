@@ -56,7 +56,6 @@ ActiveAdmin.register Candidate, :as => "Candidato" do
         row("Correo electronico") {candidato.email}
         row("Telefono") {candidato.phone_number}
         row("Tecnologia") {candidato.technology}
-        row("Estatus") {candidato.status}
       end
     end
     active_admin_comments
@@ -64,7 +63,7 @@ ActiveAdmin.register Candidate, :as => "Candidato" do
   
   sidebar "Otra Informacion", :only => :show do
     attributes_table_for candidato do
-      row("Estatus") {candidato.first_name}
+      row("Estatus") {candidato.status}
       row("Creado") {candidato.created_at}
       row("Actualizado") {candidato.updated_at}
       row("Proveedor") {candidato.admin_user}
