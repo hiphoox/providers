@@ -11,7 +11,7 @@ es:
     view: "Ver"
     edit: "Editar"
     delete: "Eliminar"
-    delete_confirmation: "¿Está seguro que quiere eliminar esto?"
+    delete_confirmation: "¿Está seguro que desea eliminar la información?"
     new_model: "Nuevo(a) %{model}"
     edit_model: "Editar %{model}"
     delete_model: "Eliminar %{model}"
