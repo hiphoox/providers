@@ -5,6 +5,17 @@
 // To customize the Active Admin interfaces, add your
 // styles here:
 
+.comments .active_admin_comment .active_admin_comment_meta .active_admin_comment_author {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0;
+  color: #5e6469;
+  a:link {
+    // display: none; // Hides the CSV .. links
+    pointer-events: none;
+    cursor: default;
+  }
+}
 
 // Variables used throughout Active Admin
 
