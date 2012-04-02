@@ -65,7 +65,11 @@ es:
             email:
               blank: "Se debe capturar el correo electrónico"
               invalid: "Correo electrónico inválido"
-
+    attributes:
+      admin_user:
+        email: "Correo"
+        password: "Contraseña"
+        remember_me: "Recuerdame"
   formtastic:
     yes: "Sí"
     no: "No"
